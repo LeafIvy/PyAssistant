@@ -1,2 +1,5 @@
+import src.window
+
 if __name__ == '__main__':
-    pass
+    app = src.window.App()
+    app.run()

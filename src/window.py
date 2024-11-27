@@ -7,22 +7,25 @@ def quit_win():
     exit()
 
 
-pg.init()
+class App:
+    def __init__(self):
+        pg.init()
 
-screen = pg.display.set_mode((1000, 700))
-clock = pg.time.Clock()
+        self.screen = pg.display.set_mode((1000, 700))
+        self.clock = pg.time.Clock()
 
-pg.display.set_caption("Python Assistant")
+        pg.display.set_caption("Python Assistant")
 
-while True:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            quit_win()
-        if event.type == pg.KEYDOWN:
-            if event.key == pg.K_q:
-                quit_win()
+    def run(self):
+        while True:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    quit_win()
+                if event.type == pg.KEYDOWN:
+                    if event.key == pg.K_q:
+                        quit_win()
 
-    screen.fill('blue')
+            self.screen.fill('blue')
 
-    pg.display.update()
-    clock.tick(60)
+            pg.display.update()
+            self.clock.tick(60)
