@@ -1,5 +1,6 @@
 import pygame as pg
 from sys import exit
+from .button import Button
 
 
 def quit_win():
@@ -13,6 +14,10 @@ class App:
 
         self.screen = pg.display.set_mode((1000, 700))
         self.clock = pg.time.Clock()
+        self.font = pg.font.Font(None, 50)
+        msg = 'Voice Command'
+        text_surf = self.font.render(msg, True, '#4169E1')
+        self.button = Button(msg, self.font, text_surf, '#0096FF', (500, 350))
 
         pg.display.set_caption("Python Assistant")
 
@@ -25,7 +30,7 @@ class App:
                     if event.key == pg.K_q:
                         quit_win()
 
-            self.screen.fill('blue')
-
+            self.screen.fill('#00008B')
+            self.button.draw(self.screen)
             pg.display.update()
             self.clock.tick(60)
