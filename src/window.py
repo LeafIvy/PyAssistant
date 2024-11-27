@@ -30,6 +30,10 @@ class App:
                     if event.key == pg.K_q:
                         quit_win()
 
+            right_clicked = pg.mouse.get_pressed()[0]
+            if right_clicked and self.button.rect.collidepoint(pg.mouse.get_pos()):
+                self.button.color = '#4682B4'
+            else: self.button.color = '#0096FF'
             self.screen.fill('#00008B')
             self.button.draw(self.screen)
             pg.display.update()
