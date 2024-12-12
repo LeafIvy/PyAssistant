@@ -17,7 +17,7 @@ class App:
         self.font = pg.font.Font(None, 50)
         msg = 'Voice Command'
         text_surf = self.font.render(msg, True, '#4169E1')
-        self.button = Button(msg, self.font, text_surf, '#0096FF', (500, 350))
+        self.button = Button(msg, self.font, text_surf, '#0096FF', (500, 350), self.button_clicked)
 
         pg.display.set_caption("Python Assistant")
 
@@ -30,11 +30,11 @@ class App:
                     if event.key == pg.K_q:
                         quit_win()
 
-            right_clicked = pg.mouse.get_pressed()[0]
-            if right_clicked and self.button.rect.collidepoint(pg.mouse.get_pos()):
-                self.button.color = '#4682B4'
-            else: self.button.color = '#0096FF'
             self.screen.fill('#00008B')
             self.button.draw(self.screen)
+            self.button.perform()
             pg.display.update()
             self.clock.tick(60)
+
+    def button_clicked(self):
+        print("hey")

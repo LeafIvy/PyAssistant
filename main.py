@@ -1,5 +1,5 @@
-import src.window
+import src.window as window
 
 if __name__ == '__main__':
-    app = src.window.App()
+    app = window.App()
     app.run()
